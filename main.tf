@@ -2,15 +2,6 @@ provider "aws" {
   region     = "${var.region}"
 }
 
-/*
-resource "aws_instance" "ami_linux" {
-  ami           = "${lookup(var.ec2_image, var.region)}"
-  instance_type = "t2.micro"
-  vpc_security_group_ids = ["${aws_security_group.allow_ssh.id}", "${aws_security_group.allow_http.id}"]
-  key_name = "${aws_key_pair.ssh_access.key_name}"
-}
-*/
-
 data "aws_ami" "amazon_linux" {
   most_recent = true
   filter {
@@ -142,42 +133,4 @@ resource "aws_lb_target_group" "tg_web_srv" {
 }
 
   
-/*  
-resource "aws_elb" "elb_websrv" {
-  name               = "ELB-WebSRV"
-  availability_zones = ["${data.aws_availability_zones.available.names}"]
-
-  listener {
-    instance_port     = 80
-    instance_protocol = "http"
-    lb_port           = 80
-    lb_protocol       = "http"
-  }
-
-  health_check {
-    healthy_threshold   = 2
-    unhealthy_threshold = 2
-    timeout             = 3
-    target              = "HTTP:80/index.html"
-    interval            = 30
-  }
-
-  tags {
-    Name = "elb_websrv"
-  }
-}  
-*/  
   
-/*
-output "public_ip" {
-  value = "${aws_instance.ami_linux.public_ip}"
-}
-
-output "public_dns" {
-  value = "${aws_instance.ami_linux.public_dns}"
-}
-
-output "ami image id" {
-  value = "${data.aws_ami.amazon_linux.id}"
-}
-*/
