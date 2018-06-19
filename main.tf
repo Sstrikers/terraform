@@ -11,6 +11,7 @@ module "network" {
   security_group_list = ["${module.network.allow_http}", "${module.network.allow_ssh}"]
   load_balancer_arn = "${module.network.load_balancer_arn}"
   target_group_arn = "${module.network.target_group_arn}"
+  availability_zones = "${data.aws_availability_zones.available.names}"
   
   vpc_cidr_block = "${var.vpc_cidr_block}"
   internet_gateway_id = "${module.network.internet_gateway_id}"
@@ -59,6 +60,8 @@ data "template_file" "user_data" {
 }
 #Get all available availability zones in current region
 data "aws_availability_zones" "available" {}
+
+
 
 
 

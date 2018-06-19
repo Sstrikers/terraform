@@ -1,5 +1,5 @@
-resource "aws_autoscaling_group" "ASGWebSRV" {
-  name                      = "ASG-WebSRV"
+resource "aws_autoscaling_group" "asg_websrv" {
+  name                      = "asg-websrv"
   max_size                  = 4
   min_size                  = 2
   desired_capacity          = 3
