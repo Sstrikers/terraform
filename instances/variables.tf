@@ -27,3 +27,10 @@ variable "image_id" {
 
 variable "launch_configuration_name" {
 }
+
+variable "subnet01_id" {
+}
+variable "subnet02_id" {
+}
+variable "subnet03_id" {
+}

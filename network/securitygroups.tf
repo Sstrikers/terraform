@@ -1,6 +1,7 @@
 resource "aws_security_group" "allow_ssh" {
   name        = "allow_ssh"
   description = "allow ssh"
+  vpc_id      = "${var.vpc_id}"
   
   ingress {
     from_port   = 22
@@ -28,6 +29,7 @@ output "allow_ssh" {
 resource "aws_security_group" "allow_http" {
   name        = "allow_http"
   description = "allow_http"
+  vpc_id      = "${var.vpc_id}"
   
   ingress {
     from_port   = 80
