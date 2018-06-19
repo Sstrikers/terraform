@@ -13,9 +13,6 @@ variable "security_group_list" {
   default = []
 }
 
-variable "launch_configuration" {
-}
-
 variable "region" {
 }
 
@@ -23,4 +20,10 @@ variable "key_name" {
 }
 
 variable "user_data" {
+}
+
+variable "image_id" {
+}
+
+variable "launch_configuration_name" {
 }
