@@ -34,3 +34,5 @@ variable "subnet02_id" {
 }
 variable "subnet03_id" {
 }
+variable "autoscalling_group_name" {
+}

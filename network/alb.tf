@@ -30,6 +30,7 @@ resource "aws_lb_target_group" "tg_web_srv" {
   port     = 80
   protocol = "HTTP"
   vpc_id   = "${var.vpc_id}"
+  deregistration_delay = 60
   health_check {
     path	 = "/index.html"
 	interval = 30

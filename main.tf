@@ -43,6 +43,15 @@ module "instances" {
   subnet01_id = "${module.network.subnet01_id}"
   subnet02_id = "${module.network.subnet02_id}"
   subnet03_id = "${module.network.subnet03_id}"
+  autoscalling_group_name = "${module.instances.autoscalling_group_name}"
+}
+
+#Create alarm
+module "monitoring" {
+  source = "./monitoring"
+  autoscaling_group_name = "${module.instances.autoscalling_group_name}"
+  autoscaling_policy_add_arn = "${module.instances.autoscaling_policy_add_arn}"
+  autoscaling_policy_remove_arn = "${module.instances.autoscaling_policy_remove_arn}"
 }
 
 #Find the latest image of amazon linux image
